@@ -1,0 +1,4 @@
+useDynLib(TSDistExtra)
+import(RcppEigen)
+importFrom(Rcpp, evalCpp)
+exportPattern("^[[:alpha:]]+")
