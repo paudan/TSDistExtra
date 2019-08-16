@@ -13,7 +13,6 @@ float MJCDistance(Eigen::ArrayXf &X, Eigen::ArrayXf &Y, float beta) {
 // [[Rcpp::export]]
 double TWEDistance(Eigen::ArrayXd X, Eigen::ArrayXd Xts, Eigen::ArrayXd Y, Eigen::ArrayXd Yts, double nu, double lambda, int degree) {
     double dist = .0f;
-    printf("%i", Xts.size());
     int lenx = X.size();
     int leny = Y.size();
     if (Xts.size() == 0)

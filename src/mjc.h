@@ -1,4 +1,3 @@
-#pragma once
 #ifndef _MJC_H
 #define _MJC_H
 
@@ -6,12 +5,8 @@
 using namespace std;
 using Eigen::ArrayXf;
 
-class CMJC{
-private:
-     vector<float> mPenalty;
+class CMJC {
 public:
-     CMJC(){};
-     ~CMJC(){};
      float compute(ArrayXf &X,ArrayXf &Y,float beta);
 private:
      float getDist(ArrayXf &X, ArrayXf &Y, float beta);

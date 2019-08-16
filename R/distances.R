@@ -5,3 +5,7 @@ TWEDistance <- function(X, Y, Xts=NULL, Yts = NULL, nu = 0.001, lambda = 1.0, de
     Yts <- 1:length(Y)
   .Call('_TSDistExtra_TWEDistance', PACKAGE = 'TSDistExtra', X, Xts, Y, Yts, nu, lambda, degree)
 }
+
+MJCDistance <- function(X, Y, beta = 2) {
+  .Call('_TSDistExtra_MJCDistance', PACKAGE = 'TSDistExtra', X, Y, beta)
+}
