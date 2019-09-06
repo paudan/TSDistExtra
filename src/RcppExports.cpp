@@ -36,10 +36,24 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// PrunedDTWDistance
+double PrunedDTWDistance(Rcpp::NumericVector X, Rcpp::NumericVector Y, double w);
+RcppExport SEXP _TSDistExtra_PrunedDTWDistance(SEXP XSEXP, SEXP YSEXP, SEXP wSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type X(XSEXP);
+    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type Y(YSEXP);
+    Rcpp::traits::input_parameter< double >::type w(wSEXP);
+    rcpp_result_gen = Rcpp::wrap(PrunedDTWDistance(X, Y, w));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_TSDistExtra_MJCDistance", (DL_FUNC) &_TSDistExtra_MJCDistance, 3},
     {"_TSDistExtra_TWEDistance", (DL_FUNC) &_TSDistExtra_TWEDistance, 7},
+    {"_TSDistExtra_PrunedDTWDistance", (DL_FUNC) &_TSDistExtra_PrunedDTWDistance, 3},
     {NULL, NULL, 0}
 };
 

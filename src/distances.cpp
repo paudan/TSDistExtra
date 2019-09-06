@@ -1,6 +1,8 @@
 #include <RcppEigen.h>
 #include "mjc.h"
 #include "twed.h"
+#include "prunedDTW.h"
+using namespace Rcpp;
 //
 // [[Rcpp::depends(RcppEigen)]]
 //
@@ -21,4 +23,9 @@ double TWEDistance(Eigen::ArrayXd X, Eigen::ArrayXd Xts, Eigen::ArrayXd Y, Eigen
         Yts = Eigen::ArrayXd::LinSpaced(leny, 1, leny);
     CTWED(X.data(), &lenx, Xts.data(), Y.data(), &leny, Yts.data(), &nu, &lambda, &degree, &dist);
     return dist;
+}
+
+// [[Rcpp::export]]
+double PrunedDTWDistance(Rcpp::NumericVector X, Rcpp::NumericVector Y, double w) {
+    return pruneddtw(as<std::vector<double>>(X), as<std::vector<double>>(Y), w);
 }

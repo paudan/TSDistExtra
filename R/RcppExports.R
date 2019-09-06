@@ -9,3 +9,7 @@ TWEDistance <- function(X, Xts, Y, Yts, nu, lambda, degree) {
     .Call('_TSDistExtra_TWEDistance', PACKAGE = 'TSDistExtra', X, Xts, Y, Yts, nu, lambda, degree)
 }
 
+PrunedDTWDistance <- function(X, Y, w) {
+    .Call('_TSDistExtra_PrunedDTWDistance', PACKAGE = 'TSDistExtra', X, Y, w)
+}
+
