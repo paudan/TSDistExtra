@@ -26,6 +26,9 @@ double TWEDistance(Eigen::ArrayXd X, Eigen::ArrayXd Xts, Eigen::ArrayXd Y, Eigen
 }
 
 // [[Rcpp::export]]
-double PrunedDTWDistance(Rcpp::NumericVector X, Rcpp::NumericVector Y, double w) {
-    return pruneddtw(as<std::vector<double>>(X), as<std::vector<double>>(Y), w);
+double PrunedDTWDistance(NumericVector X, NumericVector Y, double w) {
+    return pruneddtw(as<std::vector<double> >(X), as<std::vector<double> >(Y), w);
 }
+
+
+

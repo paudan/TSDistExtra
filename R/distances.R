@@ -9,3 +9,7 @@ TWEDistance <- function(X, Y, Xts=NULL, Yts = NULL, nu = 0.001, lambda = 1.0, de
 MJCDistance <- function(X, Y, beta = 2) {
   .Call('_TSDistExtra_MJCDistance', PACKAGE = 'TSDistExtra', X, Y, beta)
 }
+
+PrunedDTWDistance <- function(X, Y, window = 1) {
+  .Call('_TSDistExtra_PrunedDTWDistance', PACKAGE = 'TSDistExtra', X, Y, window)
+}
