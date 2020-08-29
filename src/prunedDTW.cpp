@@ -28,49 +28,6 @@
 
 using namespace std;
 
-bool readFiles(char *fileToRead, vector< vector<double> > &data) {
-	
-	char* auxLine;
-	double auxVal;
-	vector<double> auxTS;
-	std::ifstream fin (fileToRead);
-	std::string line;
-	int offset;
-	
-	if (fin.is_open()) {
-		
-		while ( getline(fin, line, '\n') ) {
-			
-			int i = 0;
-			
-			line += ",";
-			auxLine = (char *)line.c_str();			
-			auxTS.clear();
-			
-			while(sscanf(auxLine, " %lf,%n", &auxVal, &offset) == 1) {
-
-				if (i != 0)
-					auxTS.push_back(auxVal);
-
-				auxLine += offset;
-				i++;
-				
-			}
-
-			data.push_back(auxTS);
-			
-		}
-		
-	} else {
-
-		return false;
-
-	}
-	
-	return true;
-	
-}
-
 double pruneddtw(vector<double> A, vector<double> B, double w) {
 
     double *cost;
@@ -177,57 +134,5 @@ double pruneddtw(vector<double> A, vector<double> B, double w) {
     free(cost);
     free(cost_prev);
     return final_dtw;
-	
-}
-
-int main(int argc, char* argv[]) {
-	
-	clock_t t1, t2;
-	vector< vector<double> > data;
-	double window;
-	
-	if (argc < 2) {
-		printf("Parameters error\nCorrect using is:\n");
-		printf("./pruendDTW dataset warping_window (warping is optional - [0,1])\n\n");
-		return 1;
-	}
-
-	if (argc < 3) {
-		printf("Warning: warping window percentage (third arg) will be defined as 1.\n\n");
-		window = 1;
-	} else {
-
-		window = atof(argv[2]);
-
-		if (window < 0 || window > 1) {
-			printf("Parameters error\nCorrect using is:\n");
-			printf("./pruendDTW dataset warping_window (warping is optional - [0,1])\n\n");
-			return 1;
-		}
-
-	}
-
-	printf("Reading files (we consider the values in the first column as class label)\n");
-	
-	if (!readFiles(argv[1], data)) {
-		
-		printf("Error opening file.\n\n");
-		return 0;
-		
-	}
-	
-	printf("Read data is compose of %d examples with %d observations each\n\n", data.size(), data[1].size());
-	
-	
-	t1 = clock();
-	
-	for (int i = 0; i < data.size(); i++)
-		for (int j = i + 1; j < data.size(); j++)
-			printf("%.2lf ", pruneddtw(data[i],data[j],window));
-	
-	
-	t2 = clock();
-	
-	printf("Total time: %lf\n\n", (double)(t2-t1)/CLOCKS_PER_SEC);
 	
 }

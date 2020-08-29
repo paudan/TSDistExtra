@@ -10,3 +10,5 @@ License: GNU General Public License v2.0
 Imports: Rcpp (>= 1.0.0), RcppEigen (>= 0.3.3)
 LinkingTo: Rcpp, RcppEigen
 RoxygenNote: 7.1.0
+Suggests: 
+    testthat

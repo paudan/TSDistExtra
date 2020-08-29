@@ -6,22 +6,22 @@
 
 using namespace Rcpp;
 
-// MJCDistance
-float MJCDistance(Eigen::ArrayXf& X, Eigen::ArrayXf& Y, float beta);
-RcppExport SEXP _TSDistExtra_MJCDistance(SEXP XSEXP, SEXP YSEXP, SEXP betaSEXP) {
+// MJCDistance__
+float MJCDistance__(Eigen::ArrayXf& X, Eigen::ArrayXf& Y, float beta);
+RcppExport SEXP _TSDistExtra_MJCDistance__(SEXP XSEXP, SEXP YSEXP, SEXP betaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Eigen::ArrayXf& >::type X(XSEXP);
     Rcpp::traits::input_parameter< Eigen::ArrayXf& >::type Y(YSEXP);
     Rcpp::traits::input_parameter< float >::type beta(betaSEXP);
-    rcpp_result_gen = Rcpp::wrap(MJCDistance(X, Y, beta));
+    rcpp_result_gen = Rcpp::wrap(MJCDistance__(X, Y, beta));
     return rcpp_result_gen;
 END_RCPP
 }
-// TWEDistance
-double TWEDistance(Eigen::ArrayXd X, Eigen::ArrayXd Xts, Eigen::ArrayXd Y, Eigen::ArrayXd Yts, double nu, double lambda, int degree);
-RcppExport SEXP _TSDistExtra_TWEDistance(SEXP XSEXP, SEXP XtsSEXP, SEXP YSEXP, SEXP YtsSEXP, SEXP nuSEXP, SEXP lambdaSEXP, SEXP degreeSEXP) {
+// TWEDistance__
+double TWEDistance__(Eigen::ArrayXd X, Eigen::ArrayXd Xts, Eigen::ArrayXd Y, Eigen::ArrayXd Yts, double nu, double lambda, int degree);
+RcppExport SEXP _TSDistExtra_TWEDistance__(SEXP XSEXP, SEXP XtsSEXP, SEXP YSEXP, SEXP YtsSEXP, SEXP nuSEXP, SEXP lambdaSEXP, SEXP degreeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -32,28 +32,28 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< double >::type nu(nuSEXP);
     Rcpp::traits::input_parameter< double >::type lambda(lambdaSEXP);
     Rcpp::traits::input_parameter< int >::type degree(degreeSEXP);
-    rcpp_result_gen = Rcpp::wrap(TWEDistance(X, Xts, Y, Yts, nu, lambda, degree));
+    rcpp_result_gen = Rcpp::wrap(TWEDistance__(X, Xts, Y, Yts, nu, lambda, degree));
     return rcpp_result_gen;
 END_RCPP
 }
-// PrunedDTWDistance
-double PrunedDTWDistance(NumericVector X, NumericVector Y, double w);
-RcppExport SEXP _TSDistExtra_PrunedDTWDistance(SEXP XSEXP, SEXP YSEXP, SEXP wSEXP) {
+// PrunedDTWDistance__
+double PrunedDTWDistance__(NumericVector X, NumericVector Y, double w);
+RcppExport SEXP _TSDistExtra_PrunedDTWDistance__(SEXP XSEXP, SEXP YSEXP, SEXP wSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< NumericVector >::type X(XSEXP);
     Rcpp::traits::input_parameter< NumericVector >::type Y(YSEXP);
     Rcpp::traits::input_parameter< double >::type w(wSEXP);
-    rcpp_result_gen = Rcpp::wrap(PrunedDTWDistance(X, Y, w));
+    rcpp_result_gen = Rcpp::wrap(PrunedDTWDistance__(X, Y, w));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_TSDistExtra_MJCDistance", (DL_FUNC) &_TSDistExtra_MJCDistance, 3},
-    {"_TSDistExtra_TWEDistance", (DL_FUNC) &_TSDistExtra_TWEDistance, 7},
-    {"_TSDistExtra_PrunedDTWDistance", (DL_FUNC) &_TSDistExtra_PrunedDTWDistance, 3},
+    {"_TSDistExtra_MJCDistance__", (DL_FUNC) &_TSDistExtra_MJCDistance__, 3},
+    {"_TSDistExtra_TWEDistance__", (DL_FUNC) &_TSDistExtra_TWEDistance__, 7},
+    {"_TSDistExtra_PrunedDTWDistance__", (DL_FUNC) &_TSDistExtra_PrunedDTWDistance__, 3},
     {NULL, NULL, 0}
 };
 

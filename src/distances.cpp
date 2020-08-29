@@ -7,13 +7,13 @@ using namespace Rcpp;
 // [[Rcpp::depends(RcppEigen)]]
 //
 // [[Rcpp::export]]
-float MJCDistance(Eigen::ArrayXf &X, Eigen::ArrayXf &Y, float beta) {
+float MJCDistance__(Eigen::ArrayXf &X, Eigen::ArrayXf &Y, float beta) {
     CMJC *mjc = new CMJC();
     return mjc->compute(X, Y, beta);
 }
 
 // [[Rcpp::export]]
-double TWEDistance(Eigen::ArrayXd X, Eigen::ArrayXd Xts, Eigen::ArrayXd Y, Eigen::ArrayXd Yts, double nu, double lambda, int degree) {
+double TWEDistance__(Eigen::ArrayXd X, Eigen::ArrayXd Xts, Eigen::ArrayXd Y, Eigen::ArrayXd Yts, double nu, double lambda, int degree) {
     double dist = .0f;
     int lenx = X.size();
     int leny = Y.size();
@@ -26,7 +26,7 @@ double TWEDistance(Eigen::ArrayXd X, Eigen::ArrayXd Xts, Eigen::ArrayXd Y, Eigen
 }
 
 // [[Rcpp::export]]
-double PrunedDTWDistance(NumericVector X, NumericVector Y, double w) {
+double PrunedDTWDistance__(NumericVector X, NumericVector Y, double w) {
     return pruneddtw(as<std::vector<double> >(X), as<std::vector<double> >(Y), w);
 }
 

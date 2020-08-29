@@ -1,4 +1,4 @@
-useDynLib(TSDistExtra)
+useDynLib(TSDistExtra, .registration = TRUE)
 import(RcppEigen)
 importFrom(Rcpp, evalCpp)
 exportPattern("^[[:alpha:]]+")
